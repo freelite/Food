@@ -26,7 +26,7 @@ window.addEventListener('DOMContentLoaded', () => {
     hideTabContent();
     showTabContent();
 
-    tabsParent.addEventListener('click', (event) => {
+    tabsParent.addEventListener('click', event => {
         const target = event.target;
 
         if (target && target.classList.contains('tabheader__item')) {
@@ -118,13 +118,13 @@ window.addEventListener('DOMContentLoaded', () => {
         document.body.style.overflow = '';
     }
 
-    modal.addEventListener('click', (e) => {
+    modal.addEventListener('click', e => {
         if (e.target === modal || e.target.getAttribute('data-close') == '') {
             closeModal();
         }
     });
 
-    document.addEventListener('keydown', (e) => {
+    document.addEventListener('keydown', e => {
         if (e.code === 'Escape' && modal.classList.contains('show')) {
             closeModal();
         }
@@ -188,7 +188,7 @@ window.addEventListener('DOMContentLoaded', () => {
         "vegy",
         'Меню "Фитнес"',
         'Меню "Фитнес" - это новый подход к приготовлению блюд: больше свежих овощей и фруктов. Продукт активных и здоровых людей. Это абсолютно новый продукт с оптимальной ценой и высоким качеством!',
-        8,
+        9,
         '.menu .container'
     ).render();
 
@@ -197,7 +197,7 @@ window.addEventListener('DOMContentLoaded', () => {
         "elite",
         'Меню “Премиум”',
         'В меню “Премиум” мы используем не только красивый дизайн упаковки, но и качественное исполнение блюд. Красная рыба, морепродукты, фрукты - ресторанное меню без похода в ресторан!',
-        10,
+        14,
         '.menu .container',
         'menu__item'
     ).render();
@@ -207,7 +207,7 @@ window.addEventListener('DOMContentLoaded', () => {
         "post",
         'Меню "Постное"',
         'Меню “Постное” - это тщательный подбор ингредиентов: полное отсутствие продуктов животного происхождения, молоко из миндаля, овса, кокоса или гречки, правильное количество белков за счет тофу и импортных вегетарианских стейков.',
-        9,
+        21,
         '.menu .container',
         'menu__item'
     ).render();
@@ -290,4 +290,8 @@ window.addEventListener('DOMContentLoaded', () => {
             closeModal();
         }, 4000);
     }
+
+    fetch('db.json')
+        .then(data => data.json())
+        .then(res => console.log(res));
 });
